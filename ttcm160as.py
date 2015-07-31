@@ -20,8 +20,8 @@ header={'Accept': 'application/json', 'Content-Type': 'application/json'}
 url=urlroot+token
 
 def ttwrite(var, value):
-    if int(value) > 3500:
-        logging.warning('Too  big value: ' + value)
+    if int(value) > 4400:
+        logging.warning('!!!Too big value: ' + value)
         return
     data='{"values":[{"key": "' + var + '","value": "' + value + '"}]}'
     #r = requests.post(url, headers=header, data=data)
@@ -47,7 +47,7 @@ while True:
     #var = input[25:-1]
 
     if (len(input)>0):
-        logging.debug('Input-> ' + input)    
+        logging.debug('Input-> ' + input[:-1])    
         m = re.match("current watts \(230v\)   = (?P<wa>\d+)", input)
         if m:
             var = m.group("wa")

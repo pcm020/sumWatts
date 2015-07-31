@@ -38,9 +38,10 @@ def main(argv):
     global last
     inputfile = ''
     if len(argv)!=1:
-        print 'Need a file.'
-        exit(1)
-    inputfile = argv[0]
+        odate = datetime.now().strftime("%Y%m%d")
+        inputfile = "data-"+odate+".log"
+    else:
+        inputfile = argv[0]
     print 'Input file is ', inputfile
 
     with open(inputfile) as fp:
@@ -54,7 +55,7 @@ def main(argv):
             calWreg(reg, last)
             last = reg
 	
-            print str(reg)
+            #print str(reg)
 
     #get date
     print str(whours)
